@@ -34,7 +34,7 @@ This JavaScript code implements a slider component with additional features like
 - Adjust the `getRandomNumber()` function to change the range of cursor size randomness.
 - Customize cursor styles or behavior by modifying CSS rules for the `.cursor` class.
 
-### Code Overview
+## Code Overview
 
 1. **Initialization**: The script initializes the slider position and current index from `localStorage` if available.
 
