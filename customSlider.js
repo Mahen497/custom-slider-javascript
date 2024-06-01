@@ -56,8 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  navigationPrev.addEventListener('click', moveSliderPrev);
-  navigationNext.addEventListener('click', moveSliderNext);
+  navigationPrev.addEventListener('click', function(){
+    moveSliderPrev();
+  });
+  navigationNext.addEventListener('click', function(){
+    moveSliderNext();
+  });
 
   // Mouse Move Event 
   const cursor = document.querySelector(".cursor")
@@ -115,13 +119,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   sliderWrapper.addEventListener('touchstart', function (e) {
     touchStart = e.changedTouches[0].screenX;
-    console.log("touchStart", touchStart)
   });
   sliderWrapper.addEventListener('touchmove', function (e) {
-    touchEnd = e.changedTouches[0].screenY;
-    console.log("touchEnd", touchEnd)
+    touchEnd = e.changedTouches[0].screenX;
   });
-  sliderWrapper.addEventListener('touchend', function (e) {
+  sliderWrapper.addEventListener('touchend', function () {
     if (touchEnd < touchStart) {
       moveSliderNext();
     }

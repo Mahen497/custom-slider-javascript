@@ -28,13 +28,12 @@
 body{
   margin: 0;
   padding: 0;
-  height: 100vh;
   overflow-x: hidden;
   font-family: 'Times New Roman', Times, serif;
 }
 .slider__main_mp{
   position: relative;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 .slider__wrapper{
