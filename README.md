@@ -34,6 +34,23 @@ This JavaScript code implements a slider component with additional features like
 - Adjust the `getRandomNumber()` function to change the range of cursor size randomness.
 - Customize cursor styles or behavior by modifying CSS rules for the `.cursor` class.
 
+## Code Overview
+
+1. **Initialization**: The script initializes the slider position and current index from `localStorage` if available.
+
+2. **Navigation Buttons**: Functions `moveSliderPrev` and `moveSliderNext` handle the navigation between slides. They update the current index, slider position, and manage the active class for the slides.
+
+3. **Cursor Effects**: Custom cursor effects are added. The cursor changes size randomly when hovering over links and navigation items.
+
+4. **Mouse Events**: 
+   - `mousemove` event updates the cursor position.
+   - `mouseout` event hides the cursor when it leaves the document.
+   - `wheel` event handles the slider navigation using the mouse wheel.
+
+5. **Touch Events for Mobile Devices**:
+   - `touchstart` event captures the starting position of the touch.
+   - `touchmove` event captures the movement during the touch.
+   - `touchend` event determines the direction of the swipe and moves the slider accordingly.
 
 ## JavaScript Slider Component with Cursor Effects and Mouse Wheel Navigation
 
