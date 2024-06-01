@@ -197,15 +197,15 @@ body{
   right: 17.5%;
   z-index: 3;
 }
-.social__icons a{
+.social__icons_mp a{
   display: inline-block;
   width: 30px;
   margin-inline: 5px;
 }
-.social__icons a svg{
+.social__icons_mp a svg{
   width: 100%;
 }
-.social__icons a svg path{
+.social__icons_mp a svg path{
   fill: #FFF;
 }
 
