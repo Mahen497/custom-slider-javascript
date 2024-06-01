@@ -35,6 +35,7 @@ body{
 .slider__main_mp{
   position: relative;
   height: 100%;
+  overflow: hidden;
 }
 .slider__wrapper{
   display: flex;
@@ -46,6 +47,10 @@ body{
   position: relative;
   padding-inline: 90px;
   overflow: hidden;
+}
+.slider__wrapper-item:nth-child(2) .left-vertical-text{
+  right: 8%;
+  left: unset;
 }
 .lines{
   position: absolute;
@@ -70,7 +75,6 @@ body{
 .slider__wrapper-inner{
   position: relative;
   height: 100%;
-  padding: 50px 30px;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 2;
@@ -193,7 +197,7 @@ body{
 .social__icons_mp{
   position: fixed;
   z-index: 1;
-  bottom: 5%;
+  bottom: 50px;
   right: 17.5%;
   z-index: 3;
 }
@@ -300,4 +304,54 @@ nav ul li a:hover{
   opacity: 0.2;
   transform: translate(-30%, -30%);
   border-radius: 50%;
+}
+
+@media screen and (max-width:1024px){
+  .slider__wrapper-inner h3{
+    font-size: 34px;
+  }
+  .right-vertical-text{
+    right: 4%;
+  }
+  .slider__wrapper-item{
+    padding-inline: 120px;
+  }
+  .right-vertical-text{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width:576px){
+  .slider__number{
+    display: block;
+  }
+  .slider__wrapper-item{
+    padding-inline: 50px;
+  }
+  .slider__navigation-item{
+    top: 85%;
+  }
+  .social__icons_mp {
+    bottom: 20%;
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .social__icons_mp a svg{
+    width: 30px;
+    height: 30px;
+  }
+  .slider__navigation-item{
+    padding: 10px 15px;
+    letter-spacing: 0.07em;
+    font-weight: 300;
+  }
+  .right-vertical-text{
+    font-size: 10px;
+  }
+  .left-vertical-text{
+    display: none;
+  }
+  .header__logo a{
+    font-size: 18px;
+  }
 }

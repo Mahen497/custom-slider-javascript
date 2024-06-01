@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const sliderWrapper = document.querySelector('.slider__wrapper');
   const sliderItems = document.querySelectorAll('.slider__wrapper-item');
   const itemWidth = sliderItems[0].offsetWidth;
+
+
   let currentIndex = 0
 
   if (localStorage.getItem('currentIndex')) {
@@ -11,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
     sliderWrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
     sliderItems[currentIndex].classList.add('active');
     updateNavigationButtons()
-    
+
   }
-  
+
   function updateNavigationButtons() {
     if (currentIndex > 0) {
       navigationPrev.classList.add('active');
@@ -30,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function activeRemoveClass() {
     sliderWrapper.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-    
+
     sliderItems.forEach((item) => item.classList.remove('active'))
-    
+
     sliderItems[currentIndex].classList.add('active');
 
     updateNavigationButtons()
@@ -61,51 +63,73 @@ document.addEventListener('DOMContentLoaded', function () {
   const cursor = document.querySelector(".cursor")
   const links = document.querySelectorAll('a, .slider__navigation-item');
 
-  document.addEventListener('mousemove', function(e){
+  document.addEventListener('mousemove', function (e) {
     let x = e.clientX;
     let y = e.clientY;
 
-    cursor.style.top = y +'px';
-    cursor.style.left = x +'px';
+    cursor.style.top = y + 'px';
+    cursor.style.left = x + 'px';
     cursor.style.display = 'block';
 
   })
 
-  document.addEventListener('mouseout', function(){
+  document.addEventListener('mouseout', function () {
     cursor.style.display = 'none';
   })
-  
-  document.addEventListener('wheel', function(e) {
+
+  document.addEventListener('wheel', function (e) {
     e.preventDefault();
-    console.log(e.deltaY);
+
     if (e.deltaY < 0) {
       moveSliderPrev();
     } else {
       moveSliderNext();
     }
   });
-  
 
-  links.forEach((e)=>{
-    e.addEventListener('mouseover', function(e){
+  links.forEach((e) => {
+    e.addEventListener('mouseover', function (e) {
       cursor.classList.add('active')
       const randomNumber = getRandomNumber();
       cursor.style.width = randomNumber + 'px';
       cursor.style.height = randomNumber + 'px';
 
     })
-    e.addEventListener('mouseleave', function(e){
+    e.addEventListener('mouseleave', function (e) {
       cursor.classList.remove('active')
       cursor.style.width = '15px';
       cursor.style.height = '15px';
     })
 
   })
+
   function getRandomNumber() {
     const min = 9;
     const max = 13;
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
+  // touch slider in mobile 
+  let touchStart = 0;
+  let touchEnd = 0;
+
+  sliderWrapper.addEventListener('touchstart', function (e) {
+    touchStart = e.changedTouches[0].screenX;
+    console.log("touchStart", touchStart)
+  });
+  sliderWrapper.addEventListener('touchmove', function (e) {
+    touchEnd = e.changedTouches[0].screenY;
+    console.log("touchEnd", touchEnd)
+  });
+  sliderWrapper.addEventListener('touchend', function (e) {
+    if (touchEnd < touchStart) {
+      moveSliderNext();
+    }
+    if (touchEnd > touchStart) {
+      moveSliderPrev();
+    }
+  });
+
 });
 
 
