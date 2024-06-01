@@ -91,10 +91,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Mouse Wheel Event
   // Scroll navigation: Up moves to previous slide, down moves to next slide
+  document.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      moveSliderPrev();
+    } else {
+      moveSliderNext();
+    }
+  });
 
   // Event listeners for cursor effects on links and navigation items
-  // Add 'active' class to cursor and change size randomly when hovering over
+  const cursor = document.querySelector(".cursor");
+  const links = document.querySelectorAll('a, .slider__navigation-item');
+
+  links.forEach((e)=>{
+    e.addEventListener('mouseover', function(e){
+      // Add 'active' class to cursor and change size randomly when hovering over
+      cursor.classList.add('active');
+      const randomNumber = getRandomNumber();
+      cursor.style.width = randomNumber + 'px';
+      cursor.style.height = randomNumber + 'px';
+    });
+
+    e.addEventListener('mouseleave', function(e){
+      // Remove 'active' class from cursor and reset size when mouse leaves
+      cursor.classList.remove('active');
+      cursor.style.width = '15px';
+      cursor.style.height = '15px';
+    });
+  });
 
   // Function to generate random number for cursor size
+  function getRandomNumber() {
+    const min = 9;
+    const max = 13;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 });
+
 
