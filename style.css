@@ -32,7 +32,7 @@ body{
   overflow-x: hidden;
   font-family: 'Times New Roman', Times, serif;
 }
-.slider__main{
+.slider__main_mp{
   position: relative;
   height: 100%;
 }
@@ -190,7 +190,7 @@ body{
   letter-spacing: 0.5em;
   z-index: 3;
 }
-.social__icons{
+.social__icons_mp{
   position: fixed;
   z-index: 1;
   bottom: 5%;
@@ -216,7 +216,7 @@ header{
   left: 0;
   width: 100%;
 }
-.header__inner{
+.header__inner_mp{
   padding: 20px 30px;
   max-width: 1400px;
   margin: 0 auto;
