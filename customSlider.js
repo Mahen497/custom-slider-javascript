@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sliderWrapper = document.querySelector('.slider__wrapper');
   const sliderItems = document.querySelectorAll('.slider__wrapper-item');
   const itemWidth = sliderItems[0].offsetWidth;
+  let currentIndex = 0
 
   if (localStorage.getItem('currentIndex')) {
     currentIndex = parseInt(localStorage.getItem('currentIndex'));
