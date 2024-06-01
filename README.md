@@ -1,4 +1,3 @@
-# custom-slider-javascript
 # Slider with Mouse Scroll and Cursor Effects
 
 This JavaScript code implements a slider component with additional features like mouse scroll navigation and cursor effects.
